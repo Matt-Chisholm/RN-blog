@@ -10,7 +10,7 @@ import React, { useContext } from "react";
 import { Context } from "../context/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
-export default function indexScreen() {
+export default function indexScreen({ navigation }) {
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
 
   return (
@@ -21,12 +21,15 @@ export default function indexScreen() {
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item }) => {
           return (
-            <View style={styles.row}>
-              <Text style={styles.title}>{item.title}</Text>
-              <TouchableOpacity onPress={deleteBlogPost(item.id)}>
-                <Feather name='trash-2' style={styles.icon} />
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Show", { id: item.id })}>
+              <View style={styles.row}>
+                <Text style={styles.title}>{item.title}</Text>
+                <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                  <Feather name='trash-2' style={styles.icon} />
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           );
         }}
       />
