@@ -8,6 +8,9 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+./jsonserver/ngrok.exe
+./jsonserver/node_modules
+
 
 # macOS
 .DS_Store
