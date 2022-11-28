@@ -4,6 +4,7 @@ import React, { useState } from "react";
 export default function BlogPostForm({ onSubmit, initialValues }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Create new blog : </Text>
@@ -19,7 +20,7 @@ export default function BlogPostForm({ onSubmit, initialValues }) {
         value={content}
         onChangeText={(text) => setContent(text)}
       />
-      <Button title='Save Blog Post' />
+      <Button title='Save Blog Post' onPress={() => onSubmit(title, content)} />
     </View>
   );
 }
