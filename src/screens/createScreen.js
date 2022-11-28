@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { View, Text, TextInput, StyleSheet, Button } from "react-native";
 import React, { useState } from "react";
 
 export default function createScreen() {
@@ -20,6 +20,7 @@ export default function createScreen() {
         value={content}
         onChangeText={(text) => setContent(text)}
       />
+      <Button title='Add Blog Post' />
     </View>
   );
 }
