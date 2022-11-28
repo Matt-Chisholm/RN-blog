@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 import React, { useState, useContext } from "react";
 import { Context } from "../context/BlogContext";
 
@@ -8,9 +8,23 @@ export default function editScreen({ navigation }) {
     (blogPost) => blogPost.id === navigation.getParam("id")
   );
 
+  const [title, setTitle] = useState(blogPost.title);
+  const [content, setContent] = useState(blogPost.content);
+
   return (
     <View>
-      <Text>editScreen</Text>
+      <Text>Edit Title:</Text>
+      <TextInput
+        style={styles.input}
+        value={title}
+        onChangeText={(text) => setTitle(text)}
+      />
+      <Text>Edit Content:</Text>
+      <TextInput
+        style={styles.input}
+        value={content}
+        onChangeText={(text) => setContent(text)}
+      />
     </View>
   );
 }
