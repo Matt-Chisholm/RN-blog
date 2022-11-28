@@ -1,14 +1,25 @@
 import { View, Text, TextInput, StyleSheet } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 export default function createScreen() {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
   return (
-    <View>
-      <Text>Create new blog : </Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Create new blog : </Text>
       <Text>Enter Title:</Text>
-      <TextInput style={styles.input} />
+      <TextInput
+        style={styles.input}
+        value={title}
+        onChangeText={(text) => setTitle(text)}
+      />
       <Text>Enter Content:</Text>
-      <TextInput style={styles.input} />
+      <TextInput
+        style={styles.input}
+        value={content}
+        onChangeText={(text) => setContent(text)}
+      />
     </View>
   );
 }
@@ -19,7 +30,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "black",
     marginBottom: 15,
-    margin: 5,
+    margin: 10,
     padding: 5,
+  },
+  container: {
+    flex: 1,
+    display: "flex",
+    alignitems: "center",
+    justifyContent: "center",
+    marginBottom: 250,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 10,
   },
 });
