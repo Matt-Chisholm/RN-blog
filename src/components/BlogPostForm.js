@@ -2,8 +2,8 @@ import { View, Text, StyleSheet, Button, TextInput } from "react-native";
 import React, { useState } from "react";
 
 export default function BlogPostForm({ onSubmit, initialValues }) {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState(initialValues.title);
+  const [content, setContent] = useState(initialValues.content);
 
   return (
     <View style={styles.container}>
@@ -24,6 +24,13 @@ export default function BlogPostForm({ onSubmit, initialValues }) {
     </View>
   );
 }
+
+BlogPostForm.defaultProps = {
+  initialValues: {
+    title: "",
+    content: "",
+  },
+};
 
 const styles = StyleSheet.create({
   input: {
