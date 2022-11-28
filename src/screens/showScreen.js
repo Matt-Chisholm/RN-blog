@@ -12,6 +12,7 @@ export default function showScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{blogPost.title}</Text>
+      <Text style={styles.content}>{blogPost.content}</Text>
     </View>
   );
 }
@@ -43,5 +44,9 @@ const styles = StyleSheet.create({
   },
   plus: {
     marginRight: 10,
+  },
+  content: {
+    fontSize: 16,
+    textAlign: "center",
   },
 });
